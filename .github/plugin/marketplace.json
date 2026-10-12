@@ -1,0 +1,19 @@
+{
+  "name": "nanamaiq",
+  "owner": {
+    "name": "Nanama IQ",
+    "url": "https://github.com/nanamaiq"
+  },
+  "metadata": {
+    "description": "Nanama IQ plugins for GitHub Copilot CLI."
+  },
+  "plugins": [
+    {
+      "name": "nanamaiq",
+      "source": "./plugins/nanamaiq",
+      "description": "Connect GitHub Copilot CLI to Nanama IQ company and workflow tools.",
+      "version": "1.2.0",
+      "category": "Productivity"
+    }
+  ]
+}

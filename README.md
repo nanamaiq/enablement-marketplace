@@ -1,10 +1,10 @@
 # Nanama IQ plugin marketplace
 
-This repository distributes the Nanama IQ MCP plugin for both Codex and Claude Code.
+This repository distributes the Nanama IQ MCP plugin for Codex, GitHub Copilot CLI, and Claude Code.
 
 ## Prerequisite
 
-Set `NANAMAIQ_STUDIO_API_KEY` in the environment before starting Codex or Claude Code. Both plugin variants send it as a bearer token to the Nanama IQ MCP endpoint.
+Set `NANAMAIQ_STUDIO_API_KEY` in the environment before starting Codex, GitHub Copilot CLI, or Claude Code. Each plugin variant sends it as a bearer token to the Nanama IQ MCP endpoint.
 
 PowerShell:
 
@@ -23,18 +23,27 @@ Use your operating system's secret-management facilities for persistent configur
 ## Install in Codex
 
 ```powershell
-codex plugin marketplace add nanamaiq/marketplace
+codex plugin marketplace add nanamaiq/enablement-marketplace
 codex plugin add nanamaiq@nanamaiq
 ```
 
-The Codex catalog is defined in `.agents/plugins/marketplace.json` and the plugin manifest in `plugins/nanamaiq/.codex-plugin/plugin.json`.
+The Codex catalog is defined in `.agents/plugins/marketplace.json` and the plugin manifest in `plugins/nanamaiq/.codex-plugin/plugin.json`. Codex uses `.mcp.codex.json` for bearer-token authentication.
+
+## Install in GitHub Copilot CLI
+
+```powershell
+copilot plugin marketplace add nanamaiq/enablement-marketplace
+copilot plugin install nanamaiq@nanamaiq
+```
+
+Start a new Copilot CLI session and run `/mcp` to confirm that the `nanamaiq` server is available. The Copilot catalog is defined in `.github/plugin/marketplace.json` and the plugin manifest in `plugins/nanamaiq/.github/plugin/plugin.json`. Copilot and Claude Code share `.mcp.claude.json` for the bearer-token header.
 
 ## Install in Claude Code
 
 Inside Claude Code, run:
 
 ```text
-/plugin marketplace add nanamaiq/marketplace
+/plugin marketplace add nanamaiq/enablement-marketplace
 /plugin install nanamaiq@nanamaiq
 ```
 
@@ -48,7 +57,9 @@ Refresh the marketplace after a new version is published:
 
 ```powershell
 codex plugin marketplace upgrade nanamaiq
+copilot plugin marketplace update nanamaiq
+copilot plugin update nanamaiq
 claude plugin marketplace update nanamaiq
 ```
 
-When changing plugin behavior or configuration, bump the version in both plugin manifests so the two distributions stay aligned.
+When changing plugin behavior or configuration, bump the version in all three plugin manifests and the Copilot marketplace entry so the distributions stay aligned.
