@@ -1,0 +1,12 @@
+{
+  "name": "agent-framework",
+  "displayName": "Agent Framework",
+  "version": "1.0.0",
+  "description": "Build C# Microsoft Agent Framework agents with Foundry.",
+  "author": {
+    "name": "Nanama IQ",
+    "url": "https://github.com/nanamaiq"
+  },
+  "repository": "https://github.com/nanamaiq/enablement-marketplace",
+  "keywords": ["agent-framework", "csharp", "foundry"]
+}
