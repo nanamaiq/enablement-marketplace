@@ -12,6 +12,13 @@
       "description": "Connect Claude Code to Nanama IQ company and workflow tools.",
       "category": "Productivity",
       "tags": ["nanamaiq", "mcp"]
+    },
+    {
+      "name": "agent-framework",
+      "source": "./plugins/agent-framework",
+      "description": "Build C# Microsoft Agent Framework agents with Foundry.",
+      "category": "Development",
+      "tags": ["agent-framework", "csharp", "foundry"]
     }
   ]
 }

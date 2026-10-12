@@ -1,8 +1,20 @@
 # Nanama IQ plugin marketplace
 
-This repository distributes the Nanama IQ MCP plugin for Codex, GitHub Copilot CLI, and Claude Code.
+This repository distributes the Nanama IQ MCP plugin and the Agent Framework skill plugin for Codex, GitHub Copilot CLI, and Claude Code.
 
-## Prerequisite
+## Agent Framework plugin
+
+The `agent-framework` plugin includes the `agent-framework-csharp` skill for adding or changing C# Microsoft Agent Framework agents in the workshop repository. It has no MCP server or API key requirement. Its shared skill lives at `plugins/agent-framework/skills/agent-framework-csharp/SKILL.md`, with a portable manifest at `plugins/agent-framework/plugin.json` and Claude Code metadata at `plugins/agent-framework/.claude-plugin/plugin.json`.
+
+After adding this marketplace using the client commands below, install the plugin with:
+
+| Client | Command |
+| --- | --- |
+| Codex | `codex plugin add agent-framework@nanamaiq` |
+| GitHub Copilot CLI | `copilot plugin install agent-framework@nanamaiq` |
+| Claude Code | `/plugin install agent-framework@nanamaiq` |
+
+## Prerequisite for Nanama IQ
 
 Set `NANAMAIQ_STUDIO_API_KEY` in the environment before starting Codex, GitHub Copilot CLI, or Claude Code. Each plugin variant sends it as a bearer token to the Nanama IQ MCP endpoint.
 
@@ -62,4 +74,4 @@ copilot plugin update nanamaiq
 claude plugin marketplace update nanamaiq
 ```
 
-When changing plugin behavior or configuration, bump the version in all three plugin manifests and the Copilot marketplace entry so the distributions stay aligned.
+When changing Nanama IQ plugin behavior or configuration, bump the version in all three Nanama IQ plugin manifests and the Copilot marketplace entry so the distributions stay aligned. For Agent Framework, keep the portable manifest, Claude Code manifest, and Copilot marketplace version aligned.
